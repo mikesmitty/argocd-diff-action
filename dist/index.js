@@ -13555,7 +13555,7 @@ class ArgoCDServer {
     }
     async getAppLocalDiff(app) {
         if (app.spec.source !== undefined && app.spec.source.path !== undefined) {
-            return this.getAppDiff(app, [`--local=${app.spec.source.path}`]);
+            return this.getAppDiff(app, [`--local=../${path.basename(process.env.PWD)}`]);
         }
         core.error(`cannot get app diff for ${app.metadata.name}, no source/path`);
         return { app, diff: '' };
