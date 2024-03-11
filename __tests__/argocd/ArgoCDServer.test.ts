@@ -104,7 +104,7 @@ describe('ArgoCDServer tests', function () {
     expect(mockedExecCommand).toHaveBeenCalledWith(
       `bin/argo app diff ${appOne().metadata.name} --local=../${
         path.basename(process.env.PWD)
-      } --exit-code=false --auth-token=tokenfake --server=argocd.example `
+      } --local-include='*.*' --exit-code=false --auth-token=tokenfake --server=argocd.example `
     );
   });
 
